@@ -1,10 +1,6 @@
-from django.shortcuts import render 
-from django.views import View 
-from django.http import HttpResponse 
+from django.views.generic import ListView   
+from .models import ToDoList 
 
-
-# views 
-class Home(View):
-    def get(self,request):
-     return HttpResponse('Home View')
-    
+class viewOfList(ListView):
+    model = ToDoList
+    template = 'main_app/index.html'
