@@ -1,13 +1,18 @@
 {% extends "base.html" %}
-{% block content%}
-<h1>My List</h1>
 
+{% block content%}
+
+<h1>My List</h1>
+{% comment %} display list {% endcomment %}
 <ul>
+    {% for todolist in object_list %}
     <li>
-        <div>
-            role = "button"
-            onclick = "location.href = {%%}"
+        <div role = "button" onclick = "location.href = '{% url "list" todolist.id %}'">
+            {{todolist.title}}
         </div>
     </li>
+    {% empty %}
+    <h2>you do not have any list</h2>
+    {% endfor %}
 </ul>
 {% endblock%}

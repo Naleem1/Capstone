@@ -10,5 +10,10 @@ class ItemListView(ListView):
     model = ToDoItem
     template = 'main_app/todolist_list.html'
 
-    def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
-        return super().get_context_data(**kwargs)
+    def get_queryset(self):
+        return ToDoItem.objects.filter(todolist_list_id = self.kwargs['list_id'])
+
+    def get_context_data(self):
+        context = super().get_context_data
+        context['todolist_list'] = ToDoList.objects.get(id = self.kwargs['list_id'])
+        return context
