@@ -3,7 +3,7 @@
 {% block content%}
 
 <h1>My List</h1>
-{% comment %} display list {% endcomment %}
+{% comment %} display list with for loop {% endcomment %}
 <ul>
     {% for todolist in object_list %}
     <li>
@@ -12,7 +12,7 @@
         </div>
     </li>
     {% empty %}
-    <h2>you do not have any list</h2>
+        <h2>you do not have any list</h2>
     {% endfor %}
 </ul>
 {% endblock%}

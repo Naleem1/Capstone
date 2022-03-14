@@ -2,21 +2,29 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <div>
     <h1>{{ todolist_list.title | upper }}</h1>
 </div>
+
 <ul>
     {% for todo in object_list %}
+
     <li>
         <div role = 'button' onclick = "location.href = '#'">
             {{todo.title}} 
-            (Due {{todo.due_date}})
+            {{todo.due_date}}
         </div>
     </li>
+
     {% empty %}
-    no items 
+        <p> no items </p>
     {% endfor %}
+
 </ul>
 
+<div>
+    <input type = 'button' value = 'add a new items' onclick = location.href = '' </input>
+</div>
 
 {% endblock %}
