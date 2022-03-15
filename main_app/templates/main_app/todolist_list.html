@@ -5,20 +5,13 @@
 
 <div>
         {% comment %} not uppercasing {% endcomment %}
-    <h1>{{ todo_list.title | upper }}</h1>
+    <h1>{{ todo_list.title }}</h1>
 </div>
 
 <ul>
     {% for todo in object_list %}
 
-    <li>
-        <div role = 'button' onclick = "location.href = '{% url "item_update" todolist_list.id todo.id %}'">
-            
-            {{todo.title}} 
-            {{todo.due_date}}
-    
-        </div>
-    </li>
+ 
 
     {% empty %}
         <p> no items </p>
@@ -27,7 +20,7 @@
 </ul>
 
 <div>
-    <input type = 'button' value = 'add new items' onclick = "location.href = '{% url "item_add" %}'"></input>
+    <input type = 'button' value = 'add new items' onclick = "location.href = '{% url "list_add" %}'">
 
 </div>
 

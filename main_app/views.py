@@ -33,28 +33,23 @@ class ItemCreate(CreateView):
 
     def get_initial(self):
         initial_data = super(ItemCreate,self).get_initial()
-        todo_list = ToDoList.objects.get( id = self.kwarfs['list_id'])
+        todo_list = ToDoList.objects.get( id = self.kwargs['list_id'])
         initial_data['todo_list'] = todo_list
         return initial_data
 
     def get_context_data(self):
         context = super(ItemCreate, self).get_initial()
-        todo_list = ToDoList.objects.get( id = self.kwarfs['list_id'])
+        todo_list = ToDoList.objects.get( id = self.kwargs['list_id'])
         context['todo_list'] = todo_list
         context['title'] = 'Create a New Item'
         return context 
 
     def get_success_url(self):
-        return reverse('list', args = [self.object.todo_list_id])
+        return reverse('item_add', kwargs = {"id":self.id})
         
 class ItemUpdate(UpdateView):
     model = ToDoItem
-    fields = [
-        "todo_list",
-        "title",
-        "description",
-        "due_date",
-    ]
+    fields = ["todo_list","title","description","due_date", ]
 
     def get_context_data(self):
         context = super(ItemUpdate, self).get_context_data()
@@ -63,4 +58,4 @@ class ItemUpdate(UpdateView):
         return context
 
     def get_success_url(self):
-        return reverse("list", args=[self.object.todo_list_id])
+        return reverse("item_update", kwargs={"id":self.id})

@@ -16,6 +16,9 @@
     {% endfor %}
 </ul>
 <p>
-    <input onclick = "location.href = '{% url "item-add" %}'">
+    <input
+        value="Add a new list"
+        type="button"
+        onclick="location.href='{% url "list-add" %}'"/>
 </p>
 {% endblock%}
