@@ -3,7 +3,7 @@
 {% block content%}
 
 <h1>My List</h1>
-{% comment %} display list with for loop {% endcomment %}
+
 <ul>
     {% for todolist in object_list %}
     <li>
@@ -15,4 +15,7 @@
         <h2>you do not have any list</h2>
     {% endfor %}
 </ul>
+<p>
+    <input onclick = "location.href = '{% url "item-add" %}'">
+</p>
 {% endblock%}
