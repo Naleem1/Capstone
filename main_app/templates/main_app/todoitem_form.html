@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 
 
-{% block content %%}
+{% block content %}
 
-<h2> {{title}} </h2>
-
+    <p>{{ title }}</p> 
+    
 <form method = 'Post'> {% csrf_token %}
-    <table>
-        {{form.as_table}}
-    </table>
+        {{form.as_p}}
     <input value = 'submit' type = 'submit'/>
+    {% if object %}
+    <input value="Delete" type="button" onclick = "location.href = '{% url "item_delete" list %}'"/>
+    {% endif %}
 </form>
 
 

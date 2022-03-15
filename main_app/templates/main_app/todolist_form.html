@@ -7,7 +7,6 @@
     <form method = 'post'> {% csrf_token %}
         {{form.as_p}}
             <input value = 'save' type = 'submit'/>
-            {% comment %} <input value = 'cancel' type = 'button' onclick = "location.href = '{ % url "index" % }'">> {% endcomment %}
     </form>
 
 

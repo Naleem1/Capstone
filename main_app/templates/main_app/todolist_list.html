@@ -1,26 +1,30 @@
-<!DOCTYPE html>
 {% extends "base.html" %}
 
 {% block content %}
 
 <div>
-        {% comment %} not uppercasing {% endcomment %}
-    <h1>{{ todo_list.title }}</h1>
+    <h1>List Task: </h1>
 </div>
 
 <ul>
-    {% for todo in object_list %}
+    {% for todo in items %}
 
- 
+  <p>
+      <li>{{todo.title}} {{todo.description}}</li>
+  </p> 
 
     {% empty %}
-        <p> no items </p>
+        <p> No Task in list </p>
     {% endfor %}
 
 </ul>
 
 <div>
-    <input type = 'button' value = 'add new items' onclick = "location.href = '{% url "list_add" %}'">
+    <input type = 'button' value = 'add new items' onclick = "location.href = '{% url "item_add" list %}'" />
+    <form method = 'post' action = '{% url "list_delete" list  %}' >    
+    {% csrf_token %}
+    <input type = 'submit' value = 'Delete this list' />
+    </form>
 
 </div>
 

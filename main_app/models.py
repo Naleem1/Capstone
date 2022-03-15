@@ -15,7 +15,7 @@ class ToDoList(models.Model):
         return reverse('list', arg = [self.id])
 
     def _str_(self):
-        return self.title
+        return self
 
 class ToDoItem(models.Model):
     title = models.CharField(max_length=100)
