@@ -1,0 +1,16 @@
+
+{% comment %} <h1>testing</h1>
+<ul>
+    {% for todolist in object_list %}
+    <li>
+        <div role = "button" onclick = "location.href = '{% url "list" todolist.id %}'">
+            {{todolist.title}}
+        </div>
+    </li>
+    {% empty %}
+        <h2>you do not have any list</h2>
+    {% endfor %}
+</ul>
+<p>
+    <input value="Add a new list" type="button" onclick="location.href='{% url "list-add" %}'">
+</p> {% endcomment %}

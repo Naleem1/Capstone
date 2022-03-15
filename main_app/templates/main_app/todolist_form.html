@@ -4,10 +4,10 @@
 
 <h2>{{title}}</h2>
 <div>
-    <form method = 'post'>
+    <form method = 'post'> {% csrf_token %}
         {{form.as_p}}
-            <input value = 'save' type = 'submit'>/>
-            <input value = 'cancel' type = 'button' onclick = "location.href = '{ % url "index" % }'"></>
+            <input value = 'save' type = 'submit'/>
+            {% comment %} <input value = 'cancel' type = 'button' onclick = "location.href = '{ % url "index" % }'">> {% endcomment %}
     </form>
 
 

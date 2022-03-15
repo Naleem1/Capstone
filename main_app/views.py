@@ -1,10 +1,18 @@
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView  
+from pipes import Template
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView 
+from django.views.generic.base import TemplateView 
 from .models import ToDoItem, ToDoList 
 from django.urls import reverse
 
-class viewOfList(ListView):
+
+class ViewOfList(TemplateView):
     model = ToDoList
-    template = 'main_app/index.html'
+    template_name = 'main_app/index.html'
+
+    def get_context_data(self):
+        context = super().get_context_data()
+        context['todolist_list'] = ToDoList.objects.all()
+        return context
 
 class ItemListView(ListView):
     model = ToDoItem
@@ -21,7 +29,7 @@ class ItemListView(ListView):
 class ListCreate(CreateView):
     model = ToDoList
     fields = ["title"]
-
+    success_url = "/"
     def get_context_data(self):
         context = super(ListCreate, self).get_context_data()
         context["title"] = "Add a new list"
