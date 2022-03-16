@@ -1,9 +1,12 @@
-# Capstone
-To-Do List 
+To-do’s
+An app to help the ficklest of us be a bit more organized .
+The tech stack (frontend, backend, database)
+Django app 
+User stories
+As a user, I want to be able to create and delete items. As a user, I want to be able to track list and add task to those list. 
 
-User Story -
-As a user, I want to be able to create task.
-As a user, I want to be able to check off task as complete. 
-
-WireFrame - 
+Wire-Frame 
 https://miro.com/app/board/uXjVOGi9HLk=/
+
+
+
